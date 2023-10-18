@@ -52,3 +52,9 @@ With the sample checks as defined in `checks.yml`, run the following command:
 ```bash
 soda scan -d snowflake -c configuration.yml checks.yml
 ```
+
+The checks are run and sent to Soda Cloud. To avoid sending to Soda Cloud if you just want to test it locally, run instead:
+
+```bash
+soda scan -d snowflake -c configuration.yml checks.yml --local
+```
