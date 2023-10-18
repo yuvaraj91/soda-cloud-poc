@@ -1,0 +1,18 @@
+data_source snowflake:
+  type: snowflake
+  connection:
+    username: ${SNOWFLAKE_USER}
+    password: ${SNOWFLAKE_PASS}
+    account: ${SNOWFLAKE_ACCOUNT}
+    database: local
+    warehouse: compute_wh
+    role: accountadmin
+    session_parameters:
+      QUERY_TAG: soda-queries
+      QUOTED_IDENTIFIERS_IGNORE_CASE: false
+  schema: public
+
+soda_cloud:
+  host: cloud.soda.io
+  api_key_id: ${SODA_API_KEY_ID}
+  api_key_secret: ${SODA_API_KEY_SECRET}
