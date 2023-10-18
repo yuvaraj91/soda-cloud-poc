@@ -1,6 +1,6 @@
 # Data quality with Soda Cloud
 
-Proof-of-concept for the free trial of Soda Cloud + dbt
+Proof-of-concept for the free trial of Soda Cloud + dbt. Tested in Snowflake.
 
 
 # Setup
