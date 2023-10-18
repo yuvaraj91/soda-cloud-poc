@@ -1,12 +1,14 @@
-checks for GRR:
-  # Checks that dataset contains fewer than 2 rows; written to fail
-  - row_count < 2:
-    name: Dataset is unreasonably small
-  # Checks that column contains no NULL values
-  - missing_count(PID) = 0:
-      name: No NULL values
-  # Checks for columns removed or added, or changed type or index 
+checks for foto_orders:
+  - duplicate_count(photographer_id) = 0:
+      name: No duplicate id
+  # Checks for columns removed or added, or changed type or index
   - schema:
       warn:
         when schema changes: any
-      name: No changes to schema
+      name: Columns have not been removed, added, or changed
+  # Checks that dataset contains newer records; written to fail
+  - freshness(created) < 7d:
+      name: Data in this dataset is less than 7 days old
+  # Checks that dataset contains fewer than 2 rows; written to fail
+  - row_count < 2:
+      name: Dataset is unreasonably small
